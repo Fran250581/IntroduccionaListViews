@@ -9,21 +9,19 @@ import android.view.View
 import android.widget.ListView
 
 class MainActivity : ListActivity() {
+
     private var selection: TextView? = null
 
     public override fun onCreate(bundle: Bundle?) {
         super.onCreate(bundle)
         setContentView(R.layout.activity_main)
-        val arrayAdapter = ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,
-                items)
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
 
         listAdapter = arrayAdapter
         selection = findViewById<View>(R.id.elemento_seleccionado) as TextView?
     }
 
-    override fun onListItemClick(parent: ListView, v: View, position: Int,
-                                 id: Long) {
+    override fun onListItemClick(parent: ListView, v: View, position: Int, id: Long) {
         selection!!.text = items[position]
     }
 
